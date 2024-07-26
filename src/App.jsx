@@ -31,6 +31,8 @@ function App() {
       else {
         imageList[event.target.dataset.id].clicked = true;
         setScore(score + 1);
+        imageList.sort(() => Math.random() - 0.5);
+        setImageList(imageList);
       }
     }
   }
