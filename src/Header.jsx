@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ score, bestScore }) {
     return (
         <>
             <header>
@@ -6,11 +6,11 @@ export default function Header() {
                 <ul className="score-board">
                     <li>
                         <span>Score:</span>
-                        <span>0</span>
+                        <span>{score}</span>
                     </li>
                     <li>
                         <span>Best Score:</span>
-                        <span>0</span>
+                        <span>{bestScore}</span>
                     </li>
                 </ul>
             </header>
