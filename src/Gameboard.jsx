@@ -10,7 +10,7 @@ export default function Gameboard({imageList, handleClick}) {
                         onClick={handleClick}
                     >
                         <img data-id={image.id} src={image.imageUrl} alt="dog image" />
-                        <p data-id={image.id}>{image.id}</p>
+                        <p data-id={image.id}>{image.imageUrl.match(/breeds\/([\w-]+)/)[1]}</p>
                     </button>
                 )
             })}

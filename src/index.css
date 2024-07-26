@@ -93,7 +93,7 @@ button.card {
 }
 
 button.card > img {
-  min-width: 280px;
+  max-width: 100%;
 }
 
 button.card:hover {
@@ -132,8 +132,8 @@ section.cards {
   gap: 1rem;
 }
 
-div.card {
+button.card {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }

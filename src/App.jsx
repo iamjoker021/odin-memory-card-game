@@ -8,13 +8,14 @@ function App() {
   const [imageList, setImageList] = useState([]);
 
   useEffect(() => {
-    setImageList(Array.from(
-        {length: 12},
-         (v, index) => { 
-          return {id: index, imageUrl: "https://images.dog.ceo/breeds/hound-ibizan/n02091244_1340.jpg", clicked: false}
-        }
-      )
-    );
+    const dogImageApi = 'https://dog.ceo/api/breeds/image/random/12';
+    const images = fetch(dogImageApi)
+      .then(response => response.json())
+      .then(data => {
+        setImageList(data['message'].map((imageUrl, index) => {
+          return {id: index, imageUrl: imageUrl, clicked: false}
+        }))
+      })
   }, [bestScore])
   
   
