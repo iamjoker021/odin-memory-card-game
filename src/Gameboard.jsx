@@ -5,7 +5,7 @@ export default function Gameboard({imageList, handleClick}) {
                 return (
                     <button 
                         key={image.id} 
-                        className="card"
+                        className={"card" + " " + (image.clicked ? 'clicked' : 'not-clicked')}
                         data-id={image.id}
                         onClick={handleClick}
                     >

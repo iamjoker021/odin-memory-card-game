@@ -101,8 +101,11 @@ button.card:hover {
   cursor: pointer;
 }
 
-button.card:active {
-  box-shadow: 0px 0px 10px 10px white;
+button.card.not-clicked:active {
+  box-shadow: 0px 0px 10px 10px green;
+}
+button.card.clicked:active {
+  box-shadow: 0px 0px 10px 10px red;
 }
 
 /*** Layout ***/

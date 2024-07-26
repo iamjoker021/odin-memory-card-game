@@ -4,8 +4,8 @@ import Gameboard from './Gameboard';
 
 function App() {
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-  const [imageList, setImageList] = useState([])
+  const [bestScore, setBestScore] = useState({bestScore: 0});
+  const [imageList, setImageList] = useState([]);
 
   useEffect(() => {
     setImageList(Array.from(
@@ -20,16 +20,11 @@ function App() {
   
 
   function updateScoreOnClick(event) {
+    console.log(event.target)
     if (imageList) {
       if (imageList[event.target.dataset.id].clicked) {
-        // Check if High Score
-        if (score > bestScore) {
-          setBestScore(score);
-        }
-        else {
-          setBestScore(bestScore);
-        }
-        // Reset Score
+        console.log(imageList[event.target.dataset.id].clicked);
+        setBestScore({bestScore: Math.max(score, bestScore.bestScore)})
         setScore(0);
       }
       else {
@@ -44,7 +39,7 @@ function App() {
     <>
       <Header 
         score={score}
-        bestScore={bestScore}
+        bestScore={bestScore.bestScore}
       />
       <Gameboard 
         imageList={imageList}
